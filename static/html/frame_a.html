@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: black;
+        }
+
+        video {
+            margin-top: 3rem;
+            margin-left: auto;
+            margin-right: auto;
+            border: 3px solid bisque;
+            border-radius: 12px;
+            display: block;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <video style="width: 80%; height: fit-content;"   autoplay></video>
+    <script>
+        const video = document.querySelector("video");
+        const constraints = {
+            audio: false,
+            video: {
+                deviceId: '99cd71e4f646080aa7b18a2e0ffe4bf1ff1bcce85a87686f99b11398b3aecd96',
+                facingMode: 'user',
+            }
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+            video.srcObject = stream;
+        });
+    </script>
+</body>
+
+</html>
